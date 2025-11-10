@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | G Construction Contractors</title>
+  <meta name="description" content="Get in touch with G Construction Contractors for your next project. Call or send us your enquiry." />
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+
+  <!-- ✅ Header / Navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-text">G Construction Contractors</span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">☰</button>
+
+      <nav id="site-nav" class="site-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="refurbishment.html">Refurbishment</a></li>
+          <li><a href="conversions.html">Conversions</a></li>
+          <li><a href="property_maintenance.html">Property Maintenance</a></li>
+          <li><a class="active" href="contactus.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ✅ Main content -->
+  <main>
+    <section class="page-hero container">
+      <h1>Contact Us</h1>
+      <p>Tell us about your project, or give us a quick call — we’d love to help.</p>
+    </section>
+
+    <section class="container section">
+      <div class="grid grid-2 contact-choices">
+
+        <!-- ☎️ Call Card -->
+        <aside class="card contact-card">
+          <h2>Prefer to call?</h2>
+          <p>We’re happy to discuss your project and timing directly.</p>
+          <a class="btn contact-call" href="tel:+447700900123">Call +44 7700 900123</a>
+          <p class="contact-hours">Mon–Fri, 9:00–17:30</p>
+        </aside>
+
+        <!-- ✉️ Email Form -->
+         <!-- replace with your Formspree ID -->
+        <form
+          id="contact-form"
+          class="form grid grid-2 card"
+          method="POST"
+          action="https://formspree.io/f/mdkynela"  
+          novalidate
+        >
+          
+          <input type="hidden" name="_subject" value="New enquiry from G Construction website" />
+          <!-- spam-trap field - honeypot -->
+          <input class="sr-only" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" autocomplete="name" required />
+            <small class="error"></small>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+            <small class="error"></small>
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" />
+            <small class="error"></small>
+          </div>
+
+          <div class="field">
+            <label for="service">Service</label>
+            <select id="service" name="service">
+              <option value="">Select a service</option>
+              <option>Refurbishment</option>
+              <option>Conversions</option>
+              <option>Property Maintenance</option>
+              <option>Other</option>
+            </select>
+            <small class="error"></small>
+          </div>
+
+          <div class="field grid-span-2">
+            <label for="message">Project details</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+            <small class="error"></small>
+          </div>
+
+          <div class="actions grid-span-2">
+            <button class="btn" type="submit">Send message</button>
+            <p class="form-note">We’ll never share your details.</p>
+          </div>
+
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ✅ Footer -->
+  <footer class="site-footer">
+    <div class="container footer-cta">
+      <div class="footer-cta-text">
+        <h2>Ready to start?</h2>
+        <p>We’ll reply within one business day.</p>
+      </div>
+      <!-- <a class="btn btn-light" href="contactus.html">Contact Us</a> -->
+    </div>
+    <div class="container footer-meta">
+      <p>&copy; 2025 G Construction Contractors</p>
+    </div>
+  </footer>
+
+</body>
+</html>
+
+

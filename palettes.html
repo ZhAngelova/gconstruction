@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Color Palettes Preview</title>
+<style>
+  :root { --gap: 14px; }
+  *{box-sizing:border-box} body{margin:0;font:16px/1.4 system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:#faf9f7;color:#222}
+  .wrap{max-width:1100px;margin:auto;padding:32px}
+  h1{margin:0 0 8px} h2{margin:24px 0 8px} h3{margin:12px 0 6px;font-size:1rem;opacity:.8}
+  .row{display:grid;grid-template-columns:repeat(6, minmax(120px,1fr));gap:var(--gap);margin:16px 0 24px}
+  .swatch{border-radius:12px;overflow:hidden;border:1px solid #e4e0da}
+  .chip{height:72px}
+  .meta{padding:8px 10px;background:#fff;border-top:1px solid #ece7df;font-size:.9rem}
+  .meta b{display:block;font-size:.85rem;margin-bottom:2px}
+  .roles{display:grid;grid-template-columns:repeat(6, minmax(120px,1fr));gap:var(--gap);margin:8px 0 36px}
+  .role{border-radius:12px;border:1px solid #e4e0da;overflow:hidden}
+  .role .bar{height:52px}
+  .role .txt{padding:10px;background:#fff;font-size:.9rem}
+  .pill{display:inline-block;padding:.2rem .55rem;border-radius:999px;font:600 .8rem/1 system-ui;background:#0000000d}
+  .kbd{font:600 .8rem ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  .card{background:#fff;border:1px solid #e4e0da;border-radius:12px;padding:14px}
+
+  /* Palette 1 — Sandy Wood */
+  .p1 .c1{background:#6F4E37} .p1 .c2{background:#F5F1EB}
+  .p1 .c3{background:#C1A36E} .p1 .c4{background:#2F2F2F}
+  .p1 .c5{background:#D9CBB3} .p1 .c6{background:#4B3420}
+  .p1 .r-header .bar{background:#ffffff;border-bottom:2px solid #C1A36E}
+  .p1 .r-btn .bar{background:#6F4E37}
+  .p1 .r-card .bar{background:#F5F1EB}
+  .p1 .r-hover .bar{background:#D9CBB3}
+  .p1 .r-footer .bar{background:#4B3420}
+  .p1 .r-text .bar{background:#2F2F2F}
+
+  /* Palette 2 — Modern Build */
+  .p2 .c1{background:#475841} .p2 .c2{background:#F6F3EE}
+  .p2 .c3{background:#B8A47E} .p2 .c4{background:#333333}
+  .p2 .c5{background:#DDE2D0} .p2 .c6{background:#2A2A2A}
+  .p2 .r-header .bar{background:#ffffff;border-bottom:2px solid #B8A47E}
+  .p2 .r-btn .bar{background:#475841}
+  .p2 .r-card .bar{background:#F6F3EE}
+  .p2 .r-hover .bar{background:#DDE2D0}
+  .p2 .r-footer .bar{background:#2A2A2A}
+  .p2 .r-text .bar{background:#333333}
+
+  /* Palette 3 — Urban Steel */
+  .p3 .c1{background:#4A6D7C} .p3 .c2{background:#E9E6E1}
+  .p3 .c3{background:#C19A6B} .p3 .c4{background:#1E1E1E}
+  .p3 .c5{background:#F8F7F5} .p3 .c6{background:#2B3A42}
+  .p3 .r-header .bar{background:#ffffff;border-bottom:2px solid #C19A6B}
+  .p3 .r-btn .bar{background:#4A6D7C}
+  .p3 .r-card .bar{background:#E9E6E1}
+  .p3 .r-hover .bar{background:#C19A6B20}
+  .p3 .r-footer .bar{background:#2B3A42}
+  .p3 .r-text .bar{background:#1E1E1E}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Construction Site Color Palettes</h1>
+    <p class="card">Each set shows six core colors and a mock mapping to UI roles (Header border, Button, Card bg, Hover, Footer, Text). Copy any hex values directly into your CSS.</p>
+
+    <!-- Palette 1 -->
+    <h2>1) Sandy Wood — warm & natural</h2>
+    <div class="row p1">
+      <div class="swatch"><div class="chip c1"></div><div class="meta"><b>Primary (Wood)</b>#6F4E37</div></div>
+      <div class="swatch"><div class="chip c2"></div><div class="meta"><b>Background</b>#F5F1EB</div></div>
+      <div class="swatch"><div class="chip c3"></div><div class="meta"><b>Accent (Gold)</b>#C1A36E</div></div>
+      <div class="swatch"><div class="chip c4"></div><div class="meta"><b>Text</b>#2F2F2F</div></div>
+      <div class="swatch"><div class="chip c5"></div><div class="meta"><b>Hover</b>#D9CBB3</div></div>
+      <div class="swatch"><div class="chip c6"></div><div class="meta"><b>Footer</b>#4B3420</div></div>
+    </div>
+    <h3>UI roles preview</h3>
+    <div class="roles p1">
+      <div class="role r-header"><div class="bar"></div><div class="txt"><span class="pill">Header</span></div></div>
+      <div class="role r-btn"><div class="bar"></div><div class="txt"><span class="pill">Primary Button</span></div></div>
+      <div class="role r-card"><div class="bar"></div><div class="txt"><span class="pill">Card Background</span></div></div>
+      <div class="role r-hover"><div class="bar"></div><div class="txt"><span class="pill">Hover</span></div></div>
+      <div class="role r-footer"><div class="bar"></div><div class="txt"><span class="pill">Footer</span></div></div>
+      <div class="role r-text"><div class="bar"></div><div class="txt"><span class="pill">Body Text</span></div></div>
+    </div>
+
+    <!-- Palette 2 -->
+    <h2>2) Modern Build — cool & contemporary</h2>
+    <div class="row p2">
+      <div class="swatch"><div class="chip c1"></div><div class="meta"><b>Primary (Olive)</b>#475841</div></div>
+      <div class="swatch"><div class="chip c2"></div><div class="meta"><b>Background</b>#F6F3EE</div></div>
+      <div class="swatch"><div class="chip c3"></div><div class="meta"><b>Accent (Brass)</b>#B8A47E</div></div>
+      <div class="swatch"><div class="chip c4"></div><div class="meta"><b>Text</b>#333333</div></div>
+      <div class="swatch"><div class="chip c5"></div><div class="meta"><b>Soft Accent</b>#DDE2D0</div></div>
+      <div class="swatch"><div class="chip c6"></div><div class="meta"><b>Footer</b>#2A2A2A</div></div>
+    </div>
+    <h3>UI roles preview</h3>
+    <div class="roles p2">
+      <div class="role r-header"><div class="bar"></div><div class="txt"><span class="pill">Header</span></div></div>
+      <div class="role r-btn"><div class="bar"></div><div class="txt"><span class="pill">Primary Button</span></div></div>
+      <div class="role r-card"><div class="bar"></div><div class="txt"><span class="pill">Card Background</span></div></div>
+      <div class="role r-hover"><div class="bar"></div><div class="txt"><span class="pill">Hover</span></div></div>
+      <div class="role r-footer"><div class="bar"></div><div class="txt"><span class="pill">Footer</span></div></div>
+      <div class="role r-text"><div class="bar"></div><div class="txt"><span class="pill">Body Text</span></div></div>
+    </div>
+
+    <!-- Palette 3 -->
+    <h2>3) Urban Steel — sleek & minimalist</h2>
+    <div class="row p3">
+      <div class="swatch"><div class="chip c1"></div><div class="meta"><b>Primary (Steel)</b>#4A6D7C</div></div>
+      <div class="swatch"><div class="chip c2"></div><div class="meta"><b>Background</b>#E9E6E1</div></div>
+      <div class="swatch"><div class="chip c3"></div><div class="meta"><b>Accent (Copper)</b>#C19A6B</div></div>
+      <div class="swatch"><div class="chip c4"></div><div class="meta"><b>Text</b>#1E1E1E</div></div>
+      <div class="swatch"><div class="chip c5"></div><div class="meta"><b>Surface</b>#F8F7F5</div></div>
+      <div class="swatch"><div class="chip c6"></div><div class="meta"><b>Footer</b>#2B3A42</div></div>
+    </div>
+    <h3>UI roles preview</h3>
+    <div class="roles p3">
+      <div class="role r-header"><div class="bar"></div><div class="txt"><span class="pill">Header</span></div></div>
+      <div class="role r-btn"><div class="bar"></div><div class="txt"><span class="pill">Primary Button</span></div></div>
+      <div class="role r-card"><div class="bar"></div><div class="txt"><span class="pill">Card Background</span></div></div>
+      <div class="role r-hover"><div class="bar"></div><div class="txt"><span class="pill">Hover</span></div></div>
+      <div class="role r-footer"><div class="bar"></div><div class="txt"><span class="pill">Footer</span></div></div>
+      <div class="role r-text"><div class="bar"></div><div class="txt"><span class="pill">Body Text</span></div></div>
+    </div>
+  </div>
+</body>
+</html>
