@@ -1,49 +1,88 @@
-// Mobile nav toggle
+/* ------------ Mobile Nav Toggle ----------------- */
 const navToggle = document.querySelector('.nav-toggle');
 const nav = document.querySelector('#site-nav');
+
 if (navToggle && nav) {
+  // Toggle menu open/close
   navToggle.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', String(open));
+    const isOpen = nav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  // Auto-close menu when a link is tapped (on mobile)
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 640) {
+        nav.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
   });
 }
 
-// Year in footer
-const yearEl = document.querySelector('#year');
-if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// Contact form (basic client-side validation + demo submission)
+/* ------------ Lightbox (Galerry Image Viewer) ----------------- */ 
+const lb = document.getElementById('lb');
+const lbImg = document.getElementById('lb-img');
+const lbClose = document.getElementById('lb-close');
+
+if (lb && lbImg) {
+  document.addEventListener('click', e => {
+    const a = e.target.closest('.lightbox a');
+    if (!a) return;
+    e.preventDefault();
+    lbImg.src = a.href;
+    lb.hidden = false;
+  });
+
+  lb.addEventListener('click', e => {
+    if (e.target === lb) lb.hidden = true; // close on overlay click
+  });
+
+  lbClose?.addEventListener('click', () => (lb.hidden = true));
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') lb.hidden = true;
+  });
+}
+
+
+/* ------------ Contact Form (basic validation) ----------------- */ 
 const form = document.querySelector('#contact-form');
 if (form) {
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', e => {
     e.preventDefault();
+
     const name = form.querySelector('#name');
     const email = form.querySelector('#email');
     const message = form.querySelector('#message');
-    let ok = true;
+    const status = document.getElementById('form-status');
+    let valid = true;
 
     // Clear previous errors
-    form.querySelectorAll('.error').forEach(el => el.textContent = '');
+    form.querySelectorAll('.error').forEach(el => (el.textContent = ''));
 
+    // Validate fields
     if (!name.value.trim()) {
-      ok = false; name.nextElementSibling.textContent = 'Please enter your name.';
+      name.nextElementSibling.textContent = 'Please enter your name.';
+      valid = false;
     }
     if (!email.validity.valid) {
-      ok = false; email.nextElementSibling.textContent = 'Please enter a valid email.';
+      email.nextElementSibling.textContent = 'Please enter a valid email.';
+      valid = false;
     }
     if (!message.value.trim()) {
-      ok = false; message.nextElementSibling.textContent = 'Please describe your project.';
+      message.nextElementSibling.textContent = 'Please describe your project.';
+      valid = false;
     }
 
-    const status = document.getElementById('form-status');
-
-    if (!ok) {
+    if (!valid) {
       status.textContent = 'Please fix the errors above.';
       status.style.color = '#b91c1c';
       return;
     }
 
-    // Demo success (replace with your backend or form service)
+    // Success feedback (replace with backend/form service later)
     status.textContent = 'Thanks! Your message has been sent.';
     status.style.color = '#2f855a';
     form.reset();
@@ -51,52 +90,8 @@ if (form) {
 }
 
 
-document.addEventListener('click', e=>{
-  const a = e.target.closest('.lightbox a'); if(!a) return;
-  e.preventDefault();
-  const lb = document.getElementById('lb');
-  const img = document.getElementById('lb-img');
-  img.src = a.href; lb.hidden = false;
-});
-document.getElementById('lb-close')?.addEventListener('click', ()=> {
-  document.getElementById('lb').hidden = true;
-});
-document.getElementById('lb')?.addEventListener('click', e=>{
-  if(e.target.id==='lb') e.currentTarget.hidden = true;
-});
+/* ------------ Update footer year ----------------- */ 
+const yearEl = document.querySelector('#year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-
-// // --- Simple lightbox ---
-// (function(){
-//   const gallery = document.querySelector('.gallery-grid.lightbox');
-//   const lb = document.getElementById('lb');
-//   const lbImg = document.getElementById('lb-img');
-//   const lbClose = document.getElementById('lb-close');
-//   if (!gallery || !lb || !lbImg || !lbClose) return;
-
-//   // Open
-//   gallery.addEventListener('click', (e) => {
-//     const a = e.target.closest('a');
-//     if (!a) return;
-//     e.preventDefault();
-//     lbImg.src = a.getAttribute('href');     // use full-size image URL
-//     lb.hidden = false;
-//   });
-
-//   // Close (button, overlay click, or Esc)
-//   lbClose.addEventListener('click', () => lb.hidden = true);
-//   lb.addEventListener('click', (e) => { if (e.target === lb) lb.hidden = true; });
-//   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lb.hidden = true; });
-// })();
-
-
-// Mobile nav toggle
-const navToggle = document.querySelector('.nav-toggle');
-const nav = document.querySelector('#site-nav');
-if (navToggle && nav) {
-  navToggle.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', String(open));
-  });
-}
 
